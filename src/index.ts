@@ -2,7 +2,7 @@ import "./config/loadEnv";
 import { __prod__ } from "./constants";
 import Fastify from "fastify";
 import { DEV_LOGGER, PROD_LOGGER } from "./config/config";
-import mikroOrmConfig from "./config/mikro-orm.config";
+import mikroOrmConfig from "./mikro-orm.config";
 import mikroOrmPlugin from "./plugins/mikro-orm";
 import mercurius from "mercurius";
 import { CpuUsageResolver } from "./resolvers/CpuUsageResolver";
@@ -19,7 +19,7 @@ const start = async () => {
     //Mikro-Orm
     await fastify.register(mikroOrmPlugin, {
       config: mikroOrmConfig,
-      up: true,
+      up: !__prod__,
     });
 
     //Telemetry
