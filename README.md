@@ -4,17 +4,20 @@ Monitor services and execute scripts on your [project-topaz Final Fantasy XI ser
 
 #  
 ## Prerequisites
-1. [Download and install Node.js](https://nodejs.org/)
-2. [Download and install Sqlite](https://www.sqlitetutorial.net/download-install-sqlite/)
-3. Create /prisma/dev.db and /prisma/prod.db 
-4. Create .env.local and/or .env.development.local, referencing .env.local.example. 
-    - https://nextjs.org/docs/basic-features/environment-variables
+1. [Download and install Node.js if not installed.](https://nodejs.org/)
+2. [Download and install MariaDB if not installed.](https://mariadb.org/download/)
+3. Create 'ffxi_monitor_\<env>' database.
+    - ```CREATE DATABASE IF NOT EXISTS ffxi_mointor_dev;```
+4. Create development.env and/or production.env based on ```.env.example```.
 5. Install with ``` npm i ```
-6. Create database with ``` npx prisma migrate dev --preview-feature ```
 
 ## Commands
 ### Run Development
 ```bash
+#watch for file changes
+npm run watch
+
+#in separate tab start the server
 npm run dev 
 ```
 ### Build for Production
